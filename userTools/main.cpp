@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
     //Make a string command equal to second argument which will always be command
     std::string command = argv[1];
     
-    //5 arguments will always be add user with status and in this order:
-    //"uTools", Commmand, Name, Pass, Status
+    //5 arguments will always be add user with localgroup and in this order:
+    //"uTools", Commmand, Name, Pass, localgroup
     if (argc == 5)
     {
         //Check to make sure it is the add command
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
             return 0;
         }
     }
-    //4 arguments is either enable or add without status and in this order:
+    //4 arguments is either enable or add without localgroup and in this order:
     //"uTools", Command, Name, Pass
     //or
     //"uTools", Command, Name, Enabled

@@ -14,17 +14,17 @@ userTools::userTools()
     
 }
 
-void userTools::addUser(std::string name, std::string pass, std::string status)
+void userTools::addUser(std::string name, std::string pass, std::string localgroup)
 {
     //Create a user with the desired name
     system (("NET USER " +name+ " " +pass+ " /ADD").c_str());
     //Let user know that the account was successfully created
     std::cout << "Accout successfully added\n";
     
-    //If the the status assigned is admin then set the user to admin
-    if (status == "admin")
+    //If the the localgroup assigned is admin then set the user to admin
+    if (localgroup == "admin")
     {
-        system (("NET LOCALGROUP administrators " +name+ " /ADD").c_str());
+        system (("NET LOCALGROUP" +localgroup+ " " +name+ " /ADD").c_str());
         //Let user know that the account was set to admin
         std::cout << "Account set to administrator\n";
     }

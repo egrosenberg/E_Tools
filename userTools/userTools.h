@@ -16,9 +16,9 @@ class userTools
     public:
         userTools();
         
-        //Add user with a status
-        void addUser(std::string name, std::string pass, std::string status);
-        //Add a user with no status
+        //Add user with a localgroup
+        void addUser(std::string name, std::string pass, std::string localgroup);
+        //Add a user with no localgroup
         void addUser(std::string name, std::string pass);
         //Delete a User
         void delUser(std::string name);
