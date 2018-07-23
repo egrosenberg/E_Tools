@@ -8,42 +8,61 @@
 
 #include "main.h"
 
-int main()
+
+int main(int argc, char* argv[])
 {
     //Declare a userTools Object
     userTools* mainTool  = new userTools();
     
-    //Declare Variables
-    std::string command;
-    std::string name;
-    std::string pass;
-    std::string status;
-    bool enabled;
+    //Make a string command equal to second argument which will always be command
+    std::string command = argv[1];
     
-    //Take user input for command and account name
-    std::cin >> command;
-    std::cin >> name;
-    
-    //If statements for each commands
-    if (command == "add")
+    //5 arguments will always be add user with status and in this order:
+    //"uTools", Commmand, Name, Pass, Status
+    if (argc == 5)
     {
-        std::cin >> pass;
-        std::cin >> status;
-        mainTool->addUser(name, pass, status);
+        //Check to make sure it is the add command
+        if (command == "add")
+        {
+            mainTool->addUser(argv[2], argv[3], argv[4]);
+            return 0;
+        }
     }
-    else if (command == "del")
+    //4 arguments is either enable or add without status and in this order:
+    //"uTools", Command, Name, Pass
+    //or
+    //"uTools", Command, Name, Enabled
+    else if (argc == 4)
     {
-        mainTool->delUser(name);
+        //if command is add use add user command
+        if (command == "add")
+        {
+            mainTool->addUser(argv[2], argv[3]);
+            return 0;
+        }
+        //if command is enable use enable command
+        if (command == "enable")
+        {
+            mainTool->enableUser(argv[2], (bool)argv[3]);
+            return 0;
+        }
     }
-    else if (command == "enable")
+    //3 arguments will always be del and in this order:
+    //"uTools", Command, name
+    else if(argc == 3)
     {
-        std::cin >> enabled;
-        mainTool->enableUser(name, enabled);
+        //Check to make sure it is the del command
+        if (command == "del")
+        {
+            mainTool->delUser(argv [2]);
+            return 0;
+        }
     }
+    //If it hasn't returned by now show an error message
     else
     {
-        std::cout << "incorrect input!!! \n"; 
+        std::cout << "ERROR INCORRECT SYNTAX \n visit" <<
+            "https://github.com/egrosenberg/E_Tools for more information";
+        return 1;
     }
-    
-    return 0;
 }

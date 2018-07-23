@@ -28,7 +28,14 @@ void userTools::addUser(std::string name, std::string pass, std::string status)
         //Let user know that the account was set to admin
         std::cout << "Account set to administrator\n";
     }
-    
+}
+
+void userTools::addUser(std::string name, std::string pass)
+{
+    //Create a user with the desired name
+    system (("NET USER " +name+ " " +pass+ " /ADD").c_str());
+    //Let user know that the account was successfully created
+    std::cout << "Accout successfully added\n";
 }
 
 void userTools::delUser(std::string name)
