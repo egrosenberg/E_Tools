@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <vector>
 #include <cmath>
 
 
@@ -42,39 +44,59 @@ double factorial(double in)
     return (double)total;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    bool loop = 1;
-
-    while (loop)
+    //declare a vector of doubles that will store each number we are using
+    std::vector<double> num;
+    
+    //for loop that converts each odd argument to a double
+    for (int currentArg = 1; currentArg < argc; currentArg ++)
     {
-        double num1, num2;
-        char sign;
+        if (currentArg % 2 != 0)
+        {
+            num.push_back (atof (argv[currentArg]));
+        }
+    }
     
-        std::cin >> num1 >> sign >> num2;
+    //declare a vector of chars that will store each operator
+    std::vector<char> op;
     
-        switch (sign)
+    //for loop that converts each even argument to a char
+    for (int currentArg = 2; currentArg < argc; currentArg ++)
+    {
+        if (currentArg % 2 == 0)
+        {
+            op.push_back (argv[currentArg][0]);
+        }
+    }
+    
+    
+    //4 arguments means one operation
+    //"clc", num.at(0), operator, num.at(1)
+    if (argc == 4)
+    {
+        switch (op.at(0))
         {
             case '+':
-                std::cout << add(num1, num2) << '\n';
+                std::cout << add(num.at(0), num.at(1)) << '\n';
                 break;
             case '-':
-                std::cout << subtract(num1, num2) << '\n';
+                std::cout << subtract(num.at(0), num.at(1)) << '\n';
                 break;
             case '*':
-                std::cout << multiply(num1, num2) << '\n';
+                std::cout << multiply(num.at(0), num.at(1)) << '\n';
                 break;
             case '/':
-                std::cout << divide(num1, num2) << '\n';
+                std::cout << divide(num.at(0), num.at(1)) << '\n';
                 break;
             case '^':
-                std::cout << exponent(num1, num2) << '\n';
+                std::cout << exponent(num.at(0), num.at(1)) << '\n';
                 break;
             case '!':
-                std::cout << factorial(num1) << '\n';
+                std::cout << factorial(num.at(0)) << '\n';
                 break;
             default:
-                std::cout << "bad input \n";
+                std::cout << "bad num \n";
                 return 1;
         }
     }

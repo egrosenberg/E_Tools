@@ -25,3 +25,18 @@ uTools del [account name]
 ```
 uTools enable [account name] [yes | no]
 ```
+<br /> <br />
+## Calculator Usage
+```
+clc [double] [operator] [double]
+```
+### List of usable operators
+```
++ <br \>
+- <br \>
+* <br \>
+/ <br \>
+^ <br \>
+! <br \>
+**Note: if you are using ! you do not need to input a second double**
+```
