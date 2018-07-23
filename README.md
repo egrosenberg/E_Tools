@@ -10,16 +10,18 @@ Finally exit the environment variables window and now you should be able to exec
 ## uTools Usage
 **PLEASE NOTE THAT UTOOLS IS CASE SENSITIVE** <br />
 <br />
+```
 uTools [Command] [account name] [options]<br />
-### add command usage
+```
+### [add] command usage
 ```
 uTools add [account name] [password] [account localgroup | *]
 ```
-### del command usage
+### [del] command usage
 ```
 uTools del [account name]
 ```
-### enable command usage
+### [enable] command usage
 ```
 uTools enable [account name] [yes | no]
 ```
