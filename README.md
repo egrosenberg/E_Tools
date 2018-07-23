@@ -38,5 +38,5 @@ clc [double] [operator] [double]
 / 
 ^ 
 ! 
-**Note: if you are using ! you do not need to input a second double**
 ```
+**Note: if you are using ! you do not need to input a second double**
