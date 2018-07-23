@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
         //if command is enable use enable command
         if (command == "enable")
         {
-            mainTool->enableUser(argv[2], (bool)argv[3]);
+            mainTool->enableUser(argv[2], argv[3]);
             return 0;
         }
     }

@@ -23,7 +23,7 @@ class userTools
         //Delete a User
         void delUser(std::string name);
         //Enable or disable a user
-        void enableUser(std::string name, bool enable);
+        void enableUser(std::string name, std::string enable);
         
         virtual ~userTools();
     private:

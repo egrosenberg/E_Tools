@@ -46,20 +46,25 @@ void userTools::delUser(std::string name)
     std::cout << "Account successfully deleted\n";
 }
 
-void userTools::enableUser(std::string name, bool enable)
+void userTools::enableUser(std::string name, std::string enable)
 {
     //Enable or disable the named user
-    if (enable)
+    if (enable == "yes")
     {
         system (("net user " +name+ " /active:yes").c_str());
         //Let user know the account was enabled
         std::cout << "Account successfully enabled\n";
     }
-    else
+    else if (enable == "no")
     {
         system (("net user " +name+ " /active:no").c_str());
         //Let user know the account was disabled
         std::cout << "Acount successfully disabled\n";
+    }
+    else
+    {
+        std::cout << "ERROR INCORRECT SYNTAX \n visit" <<
+            "https://github.com/egrosenberg/E_Tools for more information";
     }
 }
 

@@ -8,6 +8,18 @@ next, click "Browse..." navigate to wherever the E_Tools folder is stored and an
 Finally exit the environment variables window and now you should be able to execute these files from command prompt :)<br />
 <br />
 ## uTools Usage
-uTools [Command] [account name] [options]<br \>
-### Add command usage
+**PLEASE NOTE THAT UTOOLS IS CASE SENSITIVE** <br />
+<br />
+uTools [Command] [account name] [options]<br />
+### add command usage
+```
 uTools add [account name] [password] [account localgroup | *]
+```
+### del command usage
+```
+uTools del [account name]
+```
+### enable command usage
+```
+uTools enable [account name] [yes | no]
+```
