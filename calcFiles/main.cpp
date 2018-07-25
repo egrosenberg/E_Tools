@@ -1,8 +1,4 @@
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-#include <cmath>
-
+#include "main.h"
 
 double add(double in1, double  in2)
 {
@@ -50,7 +46,7 @@ int main(int argc, char* argv[])
     std::vector<double> num;
     
     //for loop that converts each odd argument to a double
-    for (int currentArg = 1; currentArg < argc; currentArg ++)
+    for (int currentArg = 1; currentArg < argc; currentArg += 2)
     {
         if (currentArg % 2 != 0)
         {
@@ -62,7 +58,7 @@ int main(int argc, char* argv[])
     std::vector<char> op;
     
     //for loop that converts each even argument to a char
-    for (int currentArg = 2; currentArg < argc; currentArg ++)
+    for (int currentArg = 2; currentArg < argc; currentArg += 2)
     {
         if (currentArg % 2 == 0)
         {
@@ -75,30 +71,8 @@ int main(int argc, char* argv[])
     //"clc", num.at(0), operator, num.at(1)
     if (argc == 4)
     {
-        switch (op.at(0))
-        {
-            case '+':
-                std::cout << add(num.at(0), num.at(1)) << '\n';
-                break;
-            case '-':
-                std::cout << subtract(num.at(0), num.at(1)) << '\n';
-                break;
-            case '*':
-                std::cout << multiply(num.at(0), num.at(1)) << '\n';
-                break;
-            case '/':
-                std::cout << divide(num.at(0), num.at(1)) << '\n';
-                break;
-            case '^':
-                std::cout << exponent(num.at(0), num.at(1)) << '\n';
-                break;
-            case '!':
-                std::cout << factorial(num.at(0)) << '\n';
-                break;
-            default:
-                std::cout << "bad num \n";
-                return 1;
-        }
+        basicCalc* tempCalc = new basicCalc();
+        std::cout << tempCalc->solve(num.at(0), num.at(1), op.at(0)) << '\n'; //this line is where the problem lies
     }
     
     return 0;
