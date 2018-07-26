@@ -1,45 +1,5 @@
 #include "main.h"
 
-double add(double in1, double  in2)
-{
-    return in1 + in2;
-}
-
-double subtract(double in1, double in2)
-{
-    return in1 - in2;
-}
-
-double divide(double in1, double in2)
-{
-    return in1 / in2;
-}
-
-double multiply(double in1, double in2)
-{
-    return in1 * in2;
-}
-
-double exponent(double in1, double in2)
-{
-    return pow(in1, in2);
-}
-
-double modulo(double in1, double in2)
-{
-    return (int)in1 % (int)in2;
-}
-
-double factorial(double in)
-{
-    int total;
-    for (int loopCount = (int)in; loopCount > 0; loopCount--)
-    {
-        total *= loopCount;
-    }
-    return (double)total;
-}
-
 int main(int argc, char* argv[])
 {
     //declare a vector of doubles that will store each number we are using
@@ -73,6 +33,11 @@ int main(int argc, char* argv[])
     {
         basicCalc* tempCalc = new basicCalc();
         std::cout << tempCalc->solve(num.at(0), num.at(1), op.at(0)) << '\n'; //this line is where the problem lies
+    }
+    else if (argc == 2)
+    {
+        complexCalc* tempCalc = new complexCalc();
+        std::cout << tempCalc->solve(argv [1]);
     }
     
     return 0;
